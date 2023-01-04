@@ -35,6 +35,10 @@ Run the following commands to start the server:
 ```
 pipenv install django django-ninja; pipenv shell; cd djangodelights; python3 manage.py runserver;
 ```
+or
+```
+bash autoinstall.sh
+```
 username:
 ```
 admin
