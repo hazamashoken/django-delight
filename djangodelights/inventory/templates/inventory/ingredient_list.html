@@ -19,12 +19,16 @@
 		<tbody>
 		{% for ingredient in object_list %}
 			<tr>
-				<td>
-					<a href="{% url "update_ingredient" ingredient.id %}">{{ ingredient.name }}</a>
-				</td>
+				<td>{{ ingredient.name }}</td>
 				<td>{{ ingredient.quantity }}</td>
 				<td>{{ ingredient.unit }}</td>
-				<td class="price">${{ ingredient.price_per_unit|stringformat:".2f" }}</td>
+				<td class="price">${{ ingredient.prices|stringformat:".2f" }}</td>
+				<td>
+					<a href="{% url "update_ingredient" ingredient.id %}"> Edit </a>
+				</td>
+				<td>
+					<a href="{% url "delete_ingredient" ingredient.id %}"> Delete </a>
+				</td>
 			</tr>
 		{% endfor %}
 		</tbody>

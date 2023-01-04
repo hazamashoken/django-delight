@@ -2,12 +2,12 @@
 {% load static %}
 
 {% block content %}
-	<h2>Add Purchase</h2>
+	<h2>Delete {{ingredient.name}}</h2>
 	<form method="post">
 		<div>
 			{% csrf_token %}
-			{{ form.as_p }}
-			<input type="submit" value="Submit"/>
+			<p>Are you sure you want to delete {{ingredient.name}}?</p>
+			<input type="submit" value="Confirm"/>
 		</div>
 	</form>
 {% endblock %}

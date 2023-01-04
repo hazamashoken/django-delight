@@ -20,7 +20,7 @@
 						<td>{{ ingredient.name }}</td>
 						<td>{{ ingredient.quantity }}</td>
 						<td>{{ ingredient.unit }}</td>
-						<td class="price">${{ ingredient.price_per_unit|stringformat:".2f" }}</td>
+						<td class="price">${{ ingredient.prices|stringformat:".2f" }}</td>
 					</tr>
 				{% endfor %}
 				</tbody>

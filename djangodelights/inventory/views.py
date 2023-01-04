@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.db.models import Sum, F
 from django.views.generic import ListView, TemplateView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
@@ -36,6 +36,17 @@ class IngredientUpdateView(LoginRequiredMixin, UpdateView):
 	form_class = IngredientForm
 	template_name = 'inventory/update_ingredient.html'
 
+class IngredientDeleteView(LoginRequiredMixin, DeleteView):
+	model = Ingredient
+	form_class = IngredientForm
+	template_name = 'inventory/delete_ingredient.html'
+
+	def post(self, request, *args, **kwargs):
+		self.object = self.get_object()
+		success_url = self.get_success_url()
+		self.object.delete()
+		return redirect(success_url)
+
 class MenuItemListView(LoginRequiredMixin, ListView):
 	model = MenuItem
 	template_name = 'inventory/menu_list.html'
@@ -45,10 +56,32 @@ class MenuItemCreateView(LoginRequiredMixin, CreateView):
 	form_class = MenuItemForm
 	template_name = 'inventory/add_menu_item.html'
 
+class MenuItemUpdateView(LoginRequiredMixin, UpdateView):
+	model = MenuItem
+	form_class = MenuItemForm
+	template_name = 'inventory/update_menu_item.html'
+
 class RecipeRequirementCreateView(LoginRequiredMixin, CreateView):
 	model = RecipeRequirement
 	form_class = RecipeRequirementForm
 	template_name = 'inventory/add_recipe_requirement.html'
+
+class RecipeRequirementUpdateView(LoginRequiredMixin, UpdateView):
+	model = RecipeRequirement
+	form_class = RecipeRequirementForm
+	template_name = 'inventory/update_recipe_requirement.html'
+
+class RecipeRequirementDeleteView(LoginRequiredMixin, DeleteView):
+	model = RecipeRequirement
+	form_class = RecipeRequirementForm
+	template_name = 'inventory/delete_recipe_requirement.html'
+	success_url = '/menu'
+
+	def post(self, request, *args, **kwargs):
+		self.object = self.get_object()
+		success_url = self.get_success_url()
+		self.object.delete()
+		return redirect(success_url)
 
 class PurchaseListView(LoginRequiredMixin, ListView):
 	model = Purchase
