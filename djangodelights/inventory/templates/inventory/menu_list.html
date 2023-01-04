@@ -17,9 +17,10 @@
 			</div>
 			<ul class="menu-item-ingredients">
 				{% for recipe_requirement in menu_item.reciperequirement_set.all %}
-				<li>{{ recipe_requirement.quantity }} {{recipe_requirement.ingredient.unit }} {{ recipe_requirement.ingredient.name }}
-					<a href="{% url 'update_recipe_requirement' recipe_requirement.id %}">Edit</a>
-					<a href="{% url 'delete_recipe_requirement' recipe_requirement.id %}">Delete</a>
+				<li>
+					{{ recipe_requirement.quantity }} {{recipe_requirement.ingredient.unit }} {{ recipe_requirement.ingredient.name }}
+					<a class="recipe-edit" href="{% url 'update_recipe_requirement' recipe_requirement.id %}">Edit</a>
+					<a class="recipe-delete" href="{% url 'delete_recipe_requirement' recipe_requirement.id %}">Delete</a>
 				</li>
 				{% endfor %}
 			</ul>

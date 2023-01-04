@@ -40,6 +40,7 @@ class IngredientDeleteView(LoginRequiredMixin, DeleteView):
 	model = Ingredient
 	form_class = IngredientForm
 	template_name = 'inventory/delete_ingredient.html'
+	success_url = '/ingredients'
 
 	def post(self, request, *args, **kwargs):
 		self.object = self.get_object()
