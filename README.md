@@ -1,6 +1,6 @@
 # Introduction
-My First Django and Django-Ninja Project
-Building a Django Backend site with API
+My First Django and Django-Ninja Project.
+Building a Django Backend site with API.
 
 ### Main
 ![image](https://user-images.githubusercontent.com/46592735/210513489-aadd1c24-67e3-480c-a149-bdd1d41c9735.png)
@@ -22,6 +22,16 @@ API Doc
 Working with API
 
 ### Future Plan
-Add Update/Delete forms
-Add auth to API
-ADD POST/PUT/DELETE Http Methods
+* Add Update/Delete forms
+* Add auth to API
+* ADD POST/PUT/DELETE Http Methods
+
+## Getting Started
+### Requirements
+* python 3.10.9
+* pipenv
+
+Run the following commands to start the server:
+```
+pipenv install django django-ninja; pipenv shell; cd djangodelights; python3 manage.py runserver;
+```
