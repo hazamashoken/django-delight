@@ -37,7 +37,7 @@ pipenv install django django-ninja; pipenv shell; cd djangodelights; python3 man
 ```
 or
 ```
-bash autoinstall.sh
+sh autoinstall.sh
 ```
 username:
 ```
